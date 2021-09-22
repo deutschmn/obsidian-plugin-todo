@@ -20,7 +20,7 @@ export default class TodoPlugin extends Plugin {
         todos: todos,
         openFile: (filePath: string) => {
           const file = this.app.vault.getAbstractFileByPath(filePath) as TFile;
-          this.app.workspace.splitActiveLeaf().openFile(file);
+          this.app.workspace.getUnpinnedLeaf().openFile(file);
         },
         toggleTodo: (todo: TodoItem, newStatus: TodoItemStatus) => {
           this.todoIndex.setStatus(todo, newStatus);
